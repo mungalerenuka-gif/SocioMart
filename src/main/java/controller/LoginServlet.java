@@ -4,6 +4,8 @@ import dao.UserDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
+import model.User;
+
 import java.io.IOException;
 
 @WebServlet("/login")
@@ -17,8 +19,15 @@ public class LoginServlet extends HttpServlet {
 
         UserDAO dao = new UserDAO();
 
-        if (dao.loginUser(email, password)) {
-        	response.sendRedirect(request.getContextPath() + "/jsp/dashboard.jsp");
+        User user = dao.loginUser(email, password);
+
+        if (user != null) {
+
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);   // store full object
+
+            response.sendRedirect(request.getContextPath() + "/jsp/dashboard.jsp");
+
         } else {
             response.getWriter().println("Invalid Email or Password");
         }

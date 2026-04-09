@@ -46,8 +46,9 @@ public class UserDAO {
     
     
     
-    public boolean loginUser(String email, String password) {
-        boolean status = false;
+    public User loginUser(String email, String password) {
+
+        User user = null;
 
         try {
             Connection con = DBConnection.getConnection();
@@ -61,13 +62,15 @@ public class UserDAO {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                status = true;
+                user = new User();
+                user.setFullName(rs.getString("Full_name"));   // column name
+                user.setEmail(rs.getString("email"));
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return status;
+        return user;
     }
 }
