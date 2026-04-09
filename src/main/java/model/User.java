@@ -2,46 +2,46 @@ package model;
 
 public class User {
 
-    private int userId;
-    private String fullName;
+    private int user_id;
+    private String full_name;
     private String email;
     private String password;
     private String phone;
-    private String societyName;
-    private String societyToken;
+    private String society_name;
+    private String society_token;
     private String address;
     private String role;
 
     public User() {
     }
 
-    public User(int userId, String fullName, String email, String password, String phone,
-                String societyName, String societyToken, String address, String role) {
-        this.userId = userId;
-        this.fullName = fullName;
+    public User(int user_id, String full_name, String email, String password, String phone,
+                String society_name, String society_token, String address, String role) {
+        this.user_id = user_id;
+        this.full_name = full_name;
         this.email = email;
         this.password = password;
         this.phone = phone;
-        this.societyName = societyName;
-        this.societyToken = societyToken;
+        this.society_name = society_name;
+        this.society_token = society_token;
         this.address = address;
         this.role = role;
     }
 
     public int getUserId() {
-        return userId;
+        return user_id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserId(int user_id) {
+        this.user_id = user_id;
     }
 
     public String getFullName() {
-        return fullName;
+        return full_name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFullName(String full_name) {
+        this.full_name = full_name;
     }
 
     public String getEmail() {
@@ -69,19 +69,19 @@ public class User {
     }
 
     public String getSocietyName() {
-        return societyName;
+        return society_name;
     }
 
-    public void setSocietyName(String societyName) {
-        this.societyName = societyName;
+    public void setSocietyName(String society_name) {
+        this.society_name = society_name;
     }
 
     public String getSocietyToken() {
-        return societyToken;
+        return society_token;
     }
 
-    public void setSocietyToken(String societyToken) {
-        this.societyToken = societyToken;
+    public void setSocietyToken(String society_token) {
+        this.society_token = society_token;
     }
 
     public String getAddress() {

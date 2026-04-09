@@ -36,10 +36,12 @@ public class RegisterServlet extends HttpServlet {
         user.setRole(role);
 
         UserDAO dao = new UserDAO();
+        
+        boolean status = dao.registerUser(user);
 
-        if (dao.registerUser(user)) {
-            response.sendRedirect("jsp/login.jsp");
-        } else {
+        if(status){
+            response.getWriter().println("Registration Successful");
+        }else{
             response.getWriter().println("Registration Failed");
         }
     }

@@ -28,14 +28,17 @@ public class UserDAO {
 
             int rows = ps.executeUpdate();
 
+            System.out.println("Rows inserted = " + rows);
+
             if (rows > 0) {
                 status = true;
+            } else {
+                System.out.println("Insert failed");
             }
 
-        } catch (Exception e) {
+        }catch (Exception e) {
             e.printStackTrace();
         }
-
         return status;
     }
 }
